@@ -86,15 +86,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.background = '#D3F7C6'
         }
-
-        if (radioElement.checked) {
+        
+        if (radioElement.checked && quizItem.a == i) {
           // code for task 1 goes here
+          //change background color of li element here
+          score++
+        } else if (radioElement.checked && !quizItem.a == i){
+          liElement.style.background = '#F0D1D6'
         }
       }
     });
+    document.getElementById('show-score').innerHTML = `Total score = ${score}`
   };
+
+  // Set up submit button
+  const submit = document.getElementById('btnSubmit')
+  submit.addEventListener('click', function (e) {
+    calculateScore(); 
+    ;
+  })
 
   // call the displayQuiz function
   displayQuiz();
-});
+
+  // display countdown timer for 5 minutes
+  // const timerCountdown = () => {}
+
+
+})
