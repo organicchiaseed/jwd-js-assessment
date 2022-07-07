@@ -22,6 +22,9 @@
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
+    document.getElementById('countdown-display').innerHTML =
+    05 + ":" + 00;
+    startTimer()
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
@@ -58,6 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
+    
     const quizWrap = document.querySelector('#quizWrap');
     let quizDisplay = '';
     quizArray.map((quizItem, index) => {
@@ -71,6 +75,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
     });
+   
+    
   };
 
   // Calculate the score
@@ -104,15 +110,49 @@ window.addEventListener('DOMContentLoaded', () => {
   // Set up submit button
   const submit = document.getElementById('btnSubmit')
   submit.addEventListener('click', function (e) {
-    calculateScore(); 
+    document.getElementById('countdown-display').innerHTML =  00 + ":" + 00;
     ;
   })
 
   // call the displayQuiz function
   displayQuiz();
 
-  // display countdown timer for 5 minutes
-  // const timerCountdown = () => {}
+  
+    
+  // call timer function
+  const startTimer = () => {
+    
+    var presentTime = document.getElementById('countdown-display').innerHTML;
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));
+    if(s==59){m=m-1}
+    if(m<0){
+      calculateScore()
+      return
+      
+    }
+    document.getElementById('countdown-display').innerHTML =
+    m + ":" + s;
+    console.log(m)
+    
+    setTimeout(startTimer, 1000);
+  }
 
+  function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+    if (sec < 0) {sec = "59"};
+    return sec;
+  }
+
+  // call reset function
+  const reset = document.querySelector('#btnReset');
+  reset.addEventListener('click', function (e) {
+    document.querySelector('#quizBlock').style.display = 'none';
+    start.style.display = 'block';
+    score = 0;
+    document.getElementById('countdown-display').innerHTML =  00 + ":" + 00;
+
+  });
 
 })
