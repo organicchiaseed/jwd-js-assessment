@@ -30,20 +30,30 @@ window.addEventListener('DOMContentLoaded', () => {
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
   const quizArray = [
     {
-      q: 'Which is the third planet from the sun?',
-      o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
-      a: 1, // array index 1 - so Earth is the correct answer here
+      q: 'What French cheese is considered to be the bluest cheese in the world?',
+      o: ['Roquefort', 'Gorgonzola', 'Bluey', 'Saint Agur'],
+      a: 0, // array index 1 - so Earth is the correct answer here
     },
     {
-      q: 'Which is the largest ocean on Earth?',
-      o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
+      q: 'What country is known for the invention of cheddar cheese in the 12th century?',
+      o: ['France', 'Italy', 'England', 'Australia'],
+      a: 2,
+    },
+    {
+      q: 'Much like a sommelier in the wine world, what is a cheese connoisseur called?',
+      o: ['Fromagerie', 'The Big Cheese', 'Platycheese', 'Turophile'],
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
-      o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
-      a: 1,
+      q: 'Spain’s most famous cheese manchego is made from the milk of what animal?',
+      o: ['Platypus', 'Cow', 'Buffalo', 'Sheep'],
+      a: 3,
     },
+    {
+      q: 'What Italian cheese often sprinkled on pasta is strictly controlled and can only be processed in one area of Northern Italy?',
+      o: ['Parmigiano-Reggiano', 'Pecorino-Toscano', 'Gorgonzola', 'Burrata'],
+      a: 0,
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
